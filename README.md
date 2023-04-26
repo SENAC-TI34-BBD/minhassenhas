@@ -7,5 +7,5 @@ Requisitos:
 
 Executar:
 
-``npm install`` <br>
-``npm start``
+Instalar ``npm install`` <br>
+Constuir app ``npm start``
