@@ -6,10 +6,33 @@ export const styles = StyleSheet.create({
     height: 86,
     backgroundColor: "#FFFFFF",
     borderRadius: 7,
-    padding: 10,
-    flexDirection: "row",
+    padding: 16,
+    marginBottom: 16,
     alignItems: "center",
-    marginBottom: 10,
+    flexDirection: "row",
   },
-  title: {},
+  ImgBox: {
+    width: 54,
+    height: 54,
+    borderRadius: 7,
+    backgroundColor: "#D9D9D9",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  image: {
+    width: 32,
+    height: 32,
+  },
+  details: {
+    marginLeft: 12,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#000000",
+  },
+  subtitle: {
+    fontSize: 14,
+    color: "#47495B",
+  },
 });

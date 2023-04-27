@@ -9,6 +9,8 @@ export function Home() {
     <View style={styles.container}>
       <Text style={styles.title}>Minhas Senhas</Text>
       <Card />
+      <Card />
+      <Card />
       <Button title={"Nova Senha"} />
     </View>
   );
