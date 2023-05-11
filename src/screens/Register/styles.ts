@@ -6,14 +6,4 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F0F4F7",
     padding: 32,
   },
-  title: {
-    textAlign: "center",
-    fontSize: 22,
-    fontWeight: "bold",
-    marginTop: 42,
-    marginBottom: 36,
-  },
-  empty: {
-    textAlign: "center",
-  },
 });
