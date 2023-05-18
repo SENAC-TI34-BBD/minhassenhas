@@ -14,7 +14,7 @@ export function Card() {
       <View style={styles.details}>
         <Text style={styles.title}>Gmail</Text>
 
-        <Text style={styles.subtitle}>igoreduardosardinha@gmail.com</Text>
+        <Text style={styles.subtitle}>igoreduardosardinhas@gmail.com</Text>
       </View>
     </TouchableOpacity>
   );

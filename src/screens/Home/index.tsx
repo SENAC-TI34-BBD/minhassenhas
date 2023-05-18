@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Alert } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { Button } from "../../components/Button";
@@ -12,6 +12,7 @@ export function Home() {
   function handleRegister() {
     navigate("register");
   }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Minhas Senhas</Text>

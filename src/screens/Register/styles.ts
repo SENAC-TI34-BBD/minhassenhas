@@ -7,4 +7,18 @@ export const styles = StyleSheet.create({
     padding: 32,
     paddingTop: 44,
   },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 36,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+  },
+  options: {
+    maxHeight: 54,
+    marginBottom: 44,
+  },
 });
