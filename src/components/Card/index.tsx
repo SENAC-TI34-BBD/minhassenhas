@@ -4,7 +4,12 @@ import gmail from "../../assets/gmail.png";
 
 import { styles } from "./styles";
 
-export function Card() {
+type Props = {
+	name: string;
+	userOrEmail: string;
+};
+
+export function Card({ name, userOrEmail }: Props) {
 	return (
 		<TouchableOpacity style={styles.container}>
 			<View style={styles.ImgBox}>
@@ -12,9 +17,9 @@ export function Card() {
 			</View>
 
 			<View style={styles.details}>
-				<Text style={styles.title}>Gmail</Text>
+				<Text style={styles.title}>{name}</Text>
 
-				<Text style={styles.subtitle}>igoreduardosardinha@gmail.com</Text>
+				<Text style={styles.subtitle}>{userOrEmail}</Text>
 			</View>
 		</TouchableOpacity>
 	);

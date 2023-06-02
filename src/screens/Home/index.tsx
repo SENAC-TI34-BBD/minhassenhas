@@ -1,38 +1,57 @@
-import { View, Text, FlatList } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useCallback, useState } from "react";
 
-import { Button } from '../../components/Button';
-import { Card } from '../../components/Card';
+import { View, Text, FlatList } from "react-native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { styles } from './styles';
+import { Button } from "../../components/Button";
+import { Card } from "../../components/Card";
 
-export function Home(){
+import { styles } from "./styles";
 
-    const { navigate } = useNavigation();
+type Account = {
+	id: string;
+	name: string;
+	userOrEmail: string;
+	password: string;
+};
 
-    function handleRegister(){
-        navigate('register');
-    }
+export function Home() {
+	const [accounts, setAccounts] = useState<Account[]>([]);
+	const { navigate } = useNavigation();
 
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>
-                Minhas Senhas
-            </Text>
+	function handleRegister() {
+		navigate("register");
+	}
 
-            <FlatList 
-                data={['1', '2', '3', '4', '5', '6', '7', '8']}
-                keyExtractor={item => item}
-                renderItem={() =>  <Card />}
-                showsVerticalScrollIndicator={false} 
-                ListEmptyComponent={() => (
-                    <Text style={styles.empty}>
-                        Você ainda não cadastrou nenhuma senha.
-                    </Text>
-                )}
-            />
-            
-            <Button title="Nova Senha" onPress={handleRegister}/>
-        </View>
-    );
+	useFocusEffect(
+		useCallback(() => {
+			AsyncStorage.getItem("@minhasenha:accounts").then((response) => {
+				const storage = response ? JSON.parse(response) : [];
+				setAccounts(storage);
+			});
+		}, [])
+	);
+
+	return (
+		<View style={styles.container}>
+			<Text style={styles.title}>Minhas Senhas</Text>
+
+			<FlatList
+				data={accounts}
+				keyExtractor={(item) => item.name}
+				renderItem={({ item }) => (
+					<Card name={item.name} userOrEmail={item.userOrEmail} />
+				)}
+				showsVerticalScrollIndicator={false}
+				ListEmptyComponent={() => (
+					<Text style={styles.empty}>
+						Você ainda não cadastrou nenhuma senha.
+					</Text>
+				)}
+			/>
+
+			<Button title="Nova Senha" onPress={handleRegister} />
+		</View>
+	);
 }

@@ -41,6 +41,7 @@ export function Register() {
 			JSON.stringify([newAccount, ...storage])
 		);
 		Alert.alert("ℹ️ Informação", "🔑 Conta salva com sucesso!");
+		goBack();
 	}
 
 	return (
