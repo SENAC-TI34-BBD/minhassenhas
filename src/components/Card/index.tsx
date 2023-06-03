@@ -1,17 +1,23 @@
-import { View, TouchableOpacity, Text, Image } from "react-native";
+import {
+	View,
+	TouchableOpacity,
+	TouchableOpacityProps,
+	Text,
+	Image,
+} from "react-native";
 
 import gmail from "../../assets/gmail.png";
 
 import { styles } from "./styles";
 
-type Props = {
+type Props = TouchableOpacityProps & {
 	name: string;
 	userOrEmail: string;
 };
 
-export function Card({ name, userOrEmail }: Props) {
+export function Card({ name, userOrEmail, ...rest }: Props) {
 	return (
-		<TouchableOpacity style={styles.container}>
+		<TouchableOpacity style={styles.container} {...rest}>
 			<View style={styles.ImgBox}>
 				<Image source={gmail} style={styles.img} resizeMode="contain" />
 			</View>

@@ -24,6 +24,10 @@ export function Home() {
 		navigate("register");
 	}
 
+	function handleOpen(account: Account) {
+		navigate("register", { account });
+	}
+
 	useFocusEffect(
 		useCallback(() => {
 			AsyncStorage.getItem("@minhasenha:accounts").then((response) => {
@@ -39,9 +43,13 @@ export function Home() {
 
 			<FlatList
 				data={accounts}
-				keyExtractor={(item) => item.name}
+				keyExtractor={(item) => item.id}
 				renderItem={({ item }) => (
-					<Card name={item.name} userOrEmail={item.userOrEmail} />
+					<Card
+						name={item.name}
+						userOrEmail={item.userOrEmail}
+						onPress={() => handleOpen(item)}
+					/>
 				)}
 				showsVerticalScrollIndicator={false}
 				ListEmptyComponent={() => (
