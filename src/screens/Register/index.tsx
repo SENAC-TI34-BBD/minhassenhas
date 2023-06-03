@@ -63,7 +63,7 @@ export function Register() {
 		const response = await AsyncStorage.getItem("@minhasenha:accounts");
 		const storage = response ? JSON.parse(response) : [];
 
-		Alert.alert("Remover", "Deseja realmente remover essa conta?", [
+		Alert.alert("⚠️ Remover", "🔑 Deseja realmente remover essa conta?", [
 			{ text: "Não", style: "cancel" },
 			{ text: "Sim", onPress: () => removeAccount(storage) },
 		]);
